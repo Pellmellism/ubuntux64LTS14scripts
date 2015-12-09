@@ -1,0 +1,5 @@
+#for changing permissions for .sh files
+chmod u+x <<filename>> =make it executable for user
+chmod a+rwx =make stuff executable, readable, writeable for everyone
+
+chown <file> <user> =changes owner of the file
