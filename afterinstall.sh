@@ -1,8 +1,8 @@
 #!/bin/bash
 #http://howtoubuntu.org/things-to-do-after-installing-ubuntu-14-04-trusty-tahr
 
-#something to enable partner repos...
-
+#something to enable partner repos...http://askubuntu.com/a/51244
+sed -i "/^# deb .*partner/ s/^# //" /etc/apt/sources.list && apt-get update
 
 
 
