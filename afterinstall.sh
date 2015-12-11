@@ -56,7 +56,16 @@ sudo apt-get dist-upgrade
 #added git, RabbitVCS needs it...
 #added npm
 #added atom.io text editor
-sudo apt-get install git npm atom synaptic vlc gimp gimp-data gimp-plugin-registry gimp-data-extras y-ppa-manager bleachbit openjdk-7-jre oracle-java8-installer flashplugin-installer unace unrar zip unzip p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract file-roller libxine1-ffmpeg mencoder flac faac faad sox ffmpeg2theora libmpeg2-4 uudeview libmpeg3-1 mpeg3-utils mpegdemux liba52-dev mpeg2dec vorbis-tools id3v2 mpg321 mpg123 libflac++6 totem-mozilla icedax lame libmad0 libjpeg-progs libdvdcss2 libdvdread4 libdvdnav4 libswscale-extra-2 ubuntu-restricted-extras ubuntu-wallpapers*
+sudo apt-get install gcc build-essential python-dev python3-dev python-pip vim-gtk git atom curl synaptic vlc gimp gimp-data gimp-plugin-registry gimp-data-extras y-ppa-manager bleachbit openjdk-7-jre oracle-java8-installer flashplugin-installer unace unrar zip unzip p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract file-roller libxine1-ffmpeg mencoder flac faac faad sox ffmpeg2theora libmpeg2-4 uudeview libmpeg3-1 mpeg3-utils mpegdemux liba52-dev mpeg2dec vorbis-tools id3v2 mpg321 mpg123 libflac++6 totem-mozilla icedax lame libmad0 libjpeg-progs libdvdcss2 libdvdread4 libdvdnav4 libswscale-extra-2 ubuntu-restricted-extras ubuntu-wallpapers*
+
+sudo pip install virtualenvwrapper
+echo -e "\nsource `which virtualenvwrapper.sh`" >> ~/.bashrc
+mkvirtualenv pycloak --python=`which python3`
+workon pycloak
+pip install wheel
+pip install --upgrade setuptools
+pip install --upgrade pip
+#pip install -r misc/freeze.txt
 
 #do something to install additional drivers
 
@@ -98,3 +107,11 @@ sudo ln -sf /usr/lib/x86_64-linux-gnu/libpython2.7.so.1.0 /usr/lib/
 sudo ln -sf /usr/lib/x86_64-linux-gnu/libpython2.7.so.1 /usr/lib/
 wget http://rabbitvcs.googlecode.com/svn/trunk/clients/nautilus-3.0/RabbitVCS.py  /usr/share/nautilus-python/extensions
 chown -R $USER:$USER ~/.config/rabbitvcs
+
+
+# install Node and npm and electron
+sudo apt-get install curl
+curl --silent --location https://deb.nodesource.com/setup_4.x | sudo bash -
+sudo apt-get install nodejs
+sudo npm install npm -g
+sudo npm install electron-prebuilt -g
